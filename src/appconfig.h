@@ -39,6 +39,11 @@ public:
 	QMap<QString, QStringList> coundMethodGroupMap;
 
 	bool cacheEnableFlag;
+	int cacheItemMaxcount;
+	int subscribeItemMaxsizeKb;
+
+	QStringList cacheMethods;
+	QStringList subscribeMethods;
 
 	bool autoRefreshEnableFlag;
 	int autoRefreshCacheTimeoutSeconds;
@@ -46,12 +51,6 @@ public:
 	int autoRefreshAccessTimeoutSeconds;
 	int autoRefreshExceptionItemMaxcount;
 	QStringList autoRefreshExceptionMethods;
-
-	int cacheItemMaxcount;
-	int subscribeItemMaxsizeKb;
-
-	QStringList cacheMethods;
-	QStringList subscribeMethods;
 
 	QString cacheClientBin;
 	QString cacheClientOption;
