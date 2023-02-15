@@ -74,10 +74,10 @@ ws_auto_refresh_cache_timeout_seconds=6
 ws_auto_refresh_subscribe_timeout_seconds=600
 # cache auto-refresh access timeout seconds (default 300)
 ws_auto_refresh_access_timeout_seconds=301
-# cache auto-refresh exception methods
-ws_auto_refresh_exception_methods=chain_getBlockHash,system_health
 # cache auto-refresh exception item maxcount (default 64)
 ws_auto_refresh_exception_item_maxcount=62
+# cache auto-refresh exception methods
+ws_auto_refresh_exception_methods=chain_getBlockHash,system_health
 
 # cache client command
 cache_client_bin=/usr/bin/wscat

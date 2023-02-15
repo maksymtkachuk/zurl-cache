@@ -495,7 +495,10 @@ public:
 		log_info("%d", config.cacheConfig.autoRefreshSubscribeTimeoutSeconds);
 		log_info("%d", config.cacheConfig.autoRefreshAccessTimeoutSeconds);
 		log_info("%d", config.cacheConfig.autoRefreshExceptionItemMaxcount);
-		log_info("%d", config.cacheConfig.autoRefreshExceptionMethods);
+		foreach (QString methodName, config.cacheConfig.autoRefreshExceptionMethods)
+		{
+			log_info("%s", qPrintable(methodName));
+		}
 		log_info("%s", qPrintable(config.cacheConfig.cacheClientBin));
 		log_info("%s", qPrintable(config.cacheConfig.cacheClientOption));
 
