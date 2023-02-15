@@ -36,6 +36,7 @@ class CacheConfig
 {
 public:
 	QStringList countMethodGroups;
+	QMap<QString, QStringList> coundMethodGroupMap;
 };
 
 class AppConfig

@@ -448,7 +448,17 @@ public:
 		int mCnt = 0;
 		foreach (QString methodGroup, config.cacheConfig.countMethodGroups)
 		{
+			QStringList methodList = settings.value("Cache/"+methodGroup).toStringList();
+			coundMethodGroupMap.insert(methodGroup, methodList);
+		}
+		mCnt = 0;
+		foreach (QString methodGroup, config.cacheConfig.countMethodGroups)
+		{
 			log_info("Cache count method group %d : %s", mCnt++, qPrintable(methodGroup));
+			foreach (QString methodName, coundMethodGroupMap.value(methodGroup))
+			{
+				log_info("Cache count method %s : %s", qPrintable(methodGroup), qPrintable(methodName));
+			}
 		}
 
 		log_info("started");
