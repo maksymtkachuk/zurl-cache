@@ -443,7 +443,8 @@ public:
 		if(in_req_valve)
 			in_req_valve->open();
 		
-		// read cache config
+		//// read cache config
+		// count method group
 		config.cacheConfig.countMethodGroups = settings.value("Cache/ws_count_groups").toStringList();
 		int mCnt = 0;
 		foreach (QString methodGroup, config.cacheConfig.countMethodGroups)
@@ -460,6 +461,43 @@ public:
 				log_info("Cache count method %s : %s", qPrintable(methodGroup), qPrintable(methodName));
 			}
 		}
+		// cache enable flag
+		config.cacheConfig.cacheEnableFlag = settings.value("Cache/ws_cache_enable_flag", false).toBool();
+		config.cacheConfig.cacheItemMaxcount = settings.value("Cache/ws_cache_item_maxcount", 64).toInt();
+		config.cacheConfig.subscribeItemMaxsizeKb = settings.value("Cache/ws_subscribe_item_maxsize_kb", 8).toInt();
+		config.cacheConfig.cacheMethods = settings.value("Cache/ws_cache_methods").toStringList();
+		config.cacheConfig.subscribeMethods = settings.value("Cache/ws_subscribe_methods").toStringList();
+		// cache auto refresh
+		config.cacheConfig.autoRefreshEnableFlag = settings.value("Cache/ws_auto_refresh_enable_flag", false).toBool();
+		config.cacheConfig.autoRefreshCacheTimeoutSeconds = settings.value("Cache/ws_auto_refresh_cache_timeout_seconds", 5).toInt();
+		config.cacheConfig.autoRefreshSubscribeTimeoutSeconds = settings.value("Cache/ws_auto_refresh_subscribe_timeout_seconds", 3600).toInt();
+		config.cacheConfig.autoRefreshAccessTimeoutSeconds = settings.value("Cache/ws_auto_refresh_access_timeout_seconds", 300).toInt();
+		config.cacheConfig.autoRefreshExceptionItemMaxcount = settings.value("Cache/ws_auto_refresh_exception_item_maxcount", 64).toInt();
+		config.cacheConfig.autoRefreshExceptionMethods = settings.value("Cache/ws_auto_refresh_exception_methods").toStringList();
+		// cache client command
+		config.cacheConfig.cacheClientBin = settings.value("Cache/cache_client_bin").toString();
+		config.cacheConfig.cacheClientOption = settings.value("Cache/cache_client_option").toString();
+
+		//  log for check
+		log_info("%s", config.cacheConfig.cacheEnableFlag ? "true": "false");
+		log_info("%d", config.cacheConfig.cacheItemMaxcount);
+		log_info("%d", config.cacheConfig.subscribeItemMaxsizeKb);
+		foreach (QString methodName, config.cacheConfig.cacheMethods)
+		{
+			log_info("%s", qPrintable(methodName));
+		}
+		foreach (QString methodName, config.cacheConfig.subscribeMethods)
+		{
+			log_info("%s", qPrintable(methodName));
+		}
+		log_info("%s", config.cacheConfig.autoRefreshEnableFlag ? "true": "false");
+		log_info("%d", config.cacheConfig.autoRefreshCacheTimeoutSeconds);
+		log_info("%d", config.cacheConfig.autoRefreshSubscribeTimeoutSeconds);
+		log_info("%d", config.cacheConfig.autoRefreshAccessTimeoutSeconds);
+		log_info("%d", config.cacheConfig.autoRefreshExceptionItemMaxcount);
+		log_info("%d", config.cacheConfig.autoRefreshExceptionMethods);
+		log_info("%s", qPrintable(config.cacheConfig.cacheClientBin));
+		log_info("%s", qPrintable(config.cacheConfig.cacheClientOption));
 
 		log_info("started");
 	}
