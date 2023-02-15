@@ -37,7 +37,7 @@ class CacheConfig
 public:
 	QStringList countMethodGroups;
 	QMap<QString, QStringList> coundMethodGroupMap;
-	
+
 	bool cacheEnableFlag;
 
 	bool autoRefreshEnableFlag;
@@ -48,7 +48,7 @@ public:
 	QStringList autoRefreshExceptionMethods;
 
 	int cacheItemMaxcount;
-	int subscribeItemMaxSizeKb;
+	int subscribeItemMaxsizeKb;
 
 	QStringList cacheMethods;
 	QStringList subscribeMethods;
