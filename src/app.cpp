@@ -442,6 +442,14 @@ public:
 			in_valve->open();
 		if(in_req_valve)
 			in_req_valve->open();
+		
+		// read cache config
+		config.cacheConfig.countMethodGroups = settings.value("Cache/ws_count_groups").toStringList();
+		int mCnt = 0;
+		foreach (QString methodGroup, config.cacheConfig.countMethodGroups)
+		{
+			log_info("Cache count method group %d : %s", mCnt++, qPrintable(methodGroup));
+		}
 
 		log_info("started");
 	}

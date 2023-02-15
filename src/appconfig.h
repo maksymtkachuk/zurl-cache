@@ -32,6 +32,12 @@
 #include <QString>
 #include <QStringList>
 
+class CacheConfig
+{
+public:
+	QStringList countMethodGroups;
+};
+
 class AppConfig
 {
 public:
@@ -43,6 +49,7 @@ public:
 	int sessionBufferSize;
 	int activityTimeout;
 	int persistentConnectionMaxTime;
+	CacheConfig cacheConfig;
 };
 
 #endif

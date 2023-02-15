@@ -41,3 +41,6 @@ timeout=600
 # advanced
 in_hwm=1000
 out_hwm=1000
+
+[Cache]
+ws_count_groups=ws_key_group,ws_index_group,ws_block_group,ws_chain_group,ws_state_subscribe,ws_cache_candidates
